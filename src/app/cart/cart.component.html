@@ -1,0 +1,55 @@
+<p></p>
+
+<h2>Carrinho</h2>
+
+<p></p>
+
+<mat-card>
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+  </div>
+  <p>
+    <a routerLink="/shipping">Preços de Envio</a>
+  </p>
+  
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+  
+  
+    <mat-form-field appearance="outline">
+      <mat-label for="name">Nome</mat-label>
+      <input formControlName="name" matInput placeholder="Nome Completo" [required]="true">
+      <mat-error *ngIf="checkoutForm.get('name').hasError('required')">Campo obrigatório</mat-error>
+    </mat-form-field>
+  
+    <p>
+    </p>
+  
+    <mat-form-field appearance="outline">
+      <mat-label for="address">Endereço</mat-label>
+      <input formControlName="address" matInput placeholder="Rua + Número">
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+  
+    <p>
+    </p>
+  
+    <mat-form-field appearance="outline">
+      <mat-label for="email">E-mail</mat-label>
+      <input formControlName="email" matInput placeholder="exemplo@dominio.com">
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+  
+    <p>
+    </p>
+  
+    <button mat-flat-button class="button" type="submit" [disabled]="">Comprar</button>
+  
+  </form>
+  
+  <p>
+     <span>{{ formGroupValue }}</span>
+  </p>
+  
+  <!-- [disabled]="checkoutForm.invalid" -->
+</mat-card>
