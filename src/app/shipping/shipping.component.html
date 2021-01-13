@@ -3,6 +3,12 @@
 <h3>Preços de Envio:</h3>
 
 <div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+
+  <mat-checkbox>
+    
+  </mat-checkbox>
+
   <span>{{ shipping.type }}</span>
   <span>{{ shipping.price | currency }}</span>
+
 </div>

@@ -1,0 +1,38 @@
+
+<div *ngFor="let product of products" [@scaleAnimation]="'enter'">
+
+    <mat-card>
+      <mat-card-title>
+        <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+          {{ product.name }} - R$ {{ product.price }}
+        </a>
+    </mat-card-title>
+  
+    <p></p>
+    
+    <mat-card-subtitle>
+      <p *ngIf="product.description">
+        Descrição: {{ product.description }}
+      </p>
+    </mat-card-subtitle>
+    
+    <img mat-card-image src="{{ product.imageSrc }}">
+  
+    <button mat-stroked-button (click)="share()">
+      Compartilhar
+    </button>
+  
+    <p></p>
+  
+    <app-product-alerts
+      [product]="product" 
+      (notify)="onNotify()">
+    </app-product-alerts>
+  
+    <p></p>
+  
+    <button mat-stroked-button (click)="addToCart(product)">Comprar</button>
+  
+    </mat-card>
+    <p>
+  </div>

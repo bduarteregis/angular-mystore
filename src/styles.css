@@ -110,8 +110,7 @@ label {
 
 .cart-item, .shipping-item {
   width: 100%;
-  min-width: 240px;
-  max-width: 290px;
+  width: 370px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { CartService } from '../cart.service';
 
@@ -38,8 +37,8 @@ export class CartComponent implements OnInit {
         email: ['', Validators.compose([Validators.required, Validators.email])],
   
       });
-
   }
+
   onSubmit(customerData) {
 
     if(this.checkoutForm.valid) {
@@ -50,8 +49,10 @@ export class CartComponent implements OnInit {
       window.alert('Parabéns, sua compra foi finalizada com sucesso!');
 
     } else {
-      window.alert('Incorreto');
+      window.alert('--- CAMPO OBRIGATÓRIO!');
     }
-
   }
+
+
+
 }
