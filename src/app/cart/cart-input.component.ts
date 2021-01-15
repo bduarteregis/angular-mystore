@@ -11,50 +11,19 @@ import { CartComponent } from './cart.component';
 
 export class CartInputComponent {
     @Input() label;
-    @Input() param;
     @Input() placeholder;
+    itemCtrl: FormControl;
     items;
     checkoutForm;
-    cartComponent: CartComponent;
-    itemCtrl: FormControl;
   
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
   ) {
       this.itemCtrl = new FormControl();
-      this.inicializa();
+      this.itemCtrl.setValidators(Validators.required);
   }
 
-  ngOnInit() { 
-    this.items = this.cartService.getItems();
-    this.checkoutForm.valueChanges.subscribe((valor) => {
-      this.checkoutForm.formGroupValue = JSON.stringify(valor);
-      console.log(this.checkoutForm);
-    })
-   }
+  ngOnInit() {  }
 
-  inicializa() {
-
-      this.checkoutForm = this.formBuilder.group({
-        name: ['', Validators.required],
-        address: ['', Validators.required],
-        email: ['', Validators.compose([Validators.required, Validators.email])],
-  
-      });
-  }
-
-  onSubmit(customerData) {
-
-    if(this.checkoutForm.valid) {
-      this.items = this.cartService.clearCart();
-      this.inicializa();
-  
-      console.warn('Compra finalizada com sucesso!', customerData);
-      window.alert('Parabéns, sua compra foi finalizada com sucesso!');
-
-    } else {
-      window.alert('--- CAMPO OBRIGATÓRIO!');
-    }
-  }
 }

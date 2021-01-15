@@ -16,33 +16,16 @@
   </p>
   
   
-  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(this.checkoutForm.value)">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
-        <div [formGroup]="this.checkoutForm">
-          <app-cart-input
-          label="Nome"
-          param="name"
-          placeholder="Nome Completo">
-          </app-cart-input>
-        </div>
-
-        <div [formGroup]="this.checkoutForm">
-          <app-cart-input
-          label="Endereço"
-          param="address"
-          placeholder="Rua + número">
-          </app-cart-input>
-        </div>
-
-      <p>
+      <div>
         <app-cart-input
-        label="E-mail"
-        param="email"
-        placeholder="exemplo@dominio.com">
+        formControlName="name"
+        label="Nome"
+        placeholder="Nome Completo">
         </app-cart-input>
-      </p>
+      </div>
 
-  
       <p>
         <button mat-flat-button class="button" type="submit" [disabled]="">Comprar</button>
       </p>
