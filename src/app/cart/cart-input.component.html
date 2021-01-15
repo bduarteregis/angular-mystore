@@ -1,5 +1,5 @@
 <mat-form-field appearance="outline">
     <mat-label for="name">{{ label }}</mat-label>
-    <input formControlName="{{ param }}" matInput placeholder="{{ placeholder }}" [required]="true">
+    <input [formControl]="itemCtrl" matInput [placeholder]="placeholder" [required]="true">
     <mat-error *ngIf="checkoutForm.get('name').hasError('required')">Campo obrigatório</mat-error>
 </mat-form-field>

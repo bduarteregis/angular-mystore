@@ -16,11 +16,13 @@ export class CartInputComponent {
     items;
     checkoutForm;
     cartComponent: CartComponent;
+    itemCtrl: FormControl;
   
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
   ) {
+      this.itemCtrl = new FormControl();
       this.inicializa();
   }
 
