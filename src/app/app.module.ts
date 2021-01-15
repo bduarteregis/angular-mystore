@@ -22,6 +22,7 @@ import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ExpositorComponent } from './expositor/expositor.component';
+import { CartInputComponent } from './cart/cart-input.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { ExpositorComponent } from './expositor/expositor.component';
     CartComponent,
     ShippingComponent,
     ExpositorComponent,
+    CartInputComponent
   ],
   bootstrap: [
     AppComponent
